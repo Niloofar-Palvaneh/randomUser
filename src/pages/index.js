@@ -28,7 +28,7 @@ export default function Home() {
       <div className="flex items-center justify-center w-full h-screen">
         <div className="border shadow p-8 w-[400px] flex flex-col gap-12 bg-white rounded  ">
           <div className="flex items-center justify-center w-full">
-            <Image width={110} height={110} alt="profile" className="rounded-full"
+            <Image width={110} height={110} alt="profile" className="rounded-full border shadow"
             src={userInfo ? (userInfo.results[0].picture.medium) : "/load.gif"}
             />
           </div>
@@ -63,7 +63,14 @@ export default function Home() {
                 {userInfo ? (userInfo.results[0].email) : ("loading...")}
               </h6>
             </div>
+            <div className="flex items-center justify-between w-full">
+              <h5 className="font-bold text-gray-500">Location:</h5>
+              <h6 className="text-red-800 font-bold">
+                {userInfo ? (userInfo.results[0].location.country  +" , " + userInfo.results[0].location.city ) : ("loading...")}
+              </h6>
+            </div>
           </div>
+          
           <button className="bg-blue-800 text-white rounded p-2 hover:bg-blue-900 hover:text-red-100 outline-none"
             onClick={getRandomUserHandler}
           >
